@@ -47,7 +47,7 @@ public class LeaveService {
     // Admin: Update status
     public String updateLeaveStatus(int leaveId, String status){
         if(!status.equalsIgnoreCase("APPROVED") &&
-            !status.equalsIgnoreCase("PENDING")
+            !status.equalsIgnoreCase("REJECTED")
         ){
             return "Error: Invalid status";
         }

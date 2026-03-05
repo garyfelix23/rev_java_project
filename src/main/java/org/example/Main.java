@@ -13,16 +13,12 @@ public class Main {
 
     public static void main(String[] args){
 
+//  javalin doesn't automatically support Java 8 time class like LocalDate, LocalDateTime
+        // below line enable proper JSON support for Java 8 date/time classes in javalin.
         JavalinJackson.defaultMapper().registerModule(new JavaTimeModule());
 
         Javalin app = Javalin.create(config -> {
             config.staticFiles.add("/public");
-            config.bundledPlugins.enableCors(cors -> {
-                cors.addRule(it -> {
-                    it.anyHost();
-                    it.allowCredentials = true;
-                });
-            });
         }).start(7000);
 
         AuthController.register(app);

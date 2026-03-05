@@ -13,7 +13,7 @@ public class AuthController {
 
         // signup API
         app.post("/signup", ctx ->  {
-           User user = ctx.bodyAsClass(User.class);
+            User user = ctx.bodyAsClass(User.class);
 
             AuthService authService = new AuthService();
 
@@ -54,9 +54,23 @@ public class AuthController {
 
         });
 
+        // to check which user is logged in for role based dashboard in frontend
+        app.get("/me", ctx -> {
+            Integer userId = ctx.sessionAttribute("userId");
+            String role =  ctx.sessionAttribute("role");
+
+            if(userId == null){
+                ctx.status(401).result("Invalid Credentials");
+                return;
+            }
+
+            ctx.json(Map.of("userId", userId, "role", role));
+        });
+
+        // logout endpoint
         app.post("/logout", ctx -> {
             ctx.req().getSession().invalidate();
-            ctx.result("Logged out successfully");
+            ctx.status(200).result("Logged out successfully");
         });
     }
 }

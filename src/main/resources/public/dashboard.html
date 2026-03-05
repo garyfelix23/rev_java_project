@@ -6,12 +6,52 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <h2>Dashboard</h2>
-    <button onclick="applyLeave()">Apply Leave</button>
-    <button onclick="getMyLeaves()">View My Leaves</button>
+    <div id="employeeSection" style="display: none;">
+        <h2>Apply Leave</h2>
 
-    <div id="result"></div>
+        <input type="date" id="start_date">
+        <input type="date" id="end_date">
+        <input type="text" id="reason" placeholder="Reason">
+        <button onclick="applyLeave()">Apply</button>
+
+        <p id="leaveMessage"></p>
+
+        <hr>
+
+        <button onclick="loadMyLeaves()">View My Leaves</button>
+        <div id="leaveList"></div>
+
+        <hr>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <div id="adminSection" style="display:none;">
+        <h2>Admin Panel</h2>
+        <button onclick="loadAllLeaves()">View All Leaves</button>
+        <div id="adminLeaveList"></div>
+
+        <hr>
+        <button onclick="logout()">Logout</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--    <title>Dashboard</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h2>Dashboard</h2>-->
+<!--    <button onclick="applyLeave()">Apply Leave</button>-->
+<!--    <button onclick="getMyLeaves()">View My Leaves</button>-->
+
+<!--    <div id="result"></div>-->
+
+<!--    <script src="script.js"></script>-->
+<!--</body>-->
+<!--</html>-->

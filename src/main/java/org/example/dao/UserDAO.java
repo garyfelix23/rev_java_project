@@ -22,6 +22,11 @@ public class UserDAO {
 
             return ps.executeUpdate() > 0;
         }catch (Exception e){
+            // if try to enter duplicate email
+            if(e.getMessage().contains("Duplicate")){
+                return false;
+            }
+
             e.printStackTrace();
             return false;
         }

@@ -12,6 +12,6 @@ public class AuthService {
         user.setEmail(email);
         user.setPassword(password);
 
-        return  userDAO.signup(user);
+        return userDAO.signup(user);
     }
 }
