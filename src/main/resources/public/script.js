@@ -177,25 +177,6 @@ if (window.location.pathname.includes("dashboard.html")) {
     };
 }
 
-// window.onload = async function (){
-//     const response = await fetch("http://localhost:7000/me", {
-//         credentials: "include"
-//     });
-//
-//     if(!response.ok){
-//         window.location.href = "login.html";
-//         return;
-//     }
-//
-//     const user = await response.json();
-//
-//     if(user.role === "ADMIN"){
-//         document.getElementById("adminSection").style.display = "block";
-//     }else{
-//         document.getElementById("employeeSection").style.display = "block";
-//     }
-// }
-
 // Admin side - to get all leaves
 async function loadAllLeaves(){
     const response = await fetch("http://localhost:7000/admin/leaves", {
@@ -243,45 +224,6 @@ async function updateStatus(id, status){
 
     loadAllLeaves();
 }
-
-// signup
-// const signUpForm = document.getElementById("signUpForm");
-//
-// if(signUpForm){
-//     signUpForm.addEventListener("submit", async (e) => {
-//         e.preventDefault();
-//
-//         const name = document.getElementById("name").value;
-//         const email = document.getElementById("email").value;
-//         const password = document.getElementById("password").value;
-//
-//         try{
-//            const response = await fetch(`${BASE_URL}/signup`, {
-//                method: "POST",
-//                headers: {
-//                    "Content-Type": "application/json"
-//                },
-//                credentials: "include",
-//                body: JSON.stringify({
-//                    name: name,
-//                    email: email,
-//                    password: password,
-//                })
-//            });
-//
-//            const data = await response.text();
-//
-//            if(response.ok){
-//                alert("User signed up. Please login!!!");
-//                window.location.href = "login.html";
-//            }else{
-//                document.getElementById("message").innerText = data;
-//            }
-//         }catch (error){
-//             console.log(error)
-//         }
-//     })
-// }
 
 const signupForm = document.getElementById("signupForm");
 
